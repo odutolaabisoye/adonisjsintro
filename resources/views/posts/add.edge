@@ -1,0 +1,27 @@
+@layout('main')
+
+@section('content')
+    <a href="/posts">Go back</a>
+    <hr>
+    <h1>Add Post</h1>
+    <form actions="{{ route('post.store') }}" method="POST">
+        {{ csrfField() }}
+        <div class="form-group">
+            <label>Title</label>
+            <input type="text" name="title" id="title" class="form-control"  placeholder="title" value="{{ old('title', '') }}">
+        </div>
+        {{ elIf('<span class="text-danger">$self</span>', getErrorFor('title'), hasErrorFor('title')) }}
+
+        <div class="form-group">
+            <label>Body</label>
+            <input type="text" name="body" id="body" class="form-control"  placeholder="body" value="{{ old('body', '') }}">
+        </div>
+        {{ elIf('<span class="text-danger">$self</span>', getErrorFor('body'), hasErrorFor('body')) }}
+        
+        <button class="btn btn-primary" type="submit">
+            Submit
+        </button>
+
+    </form>
+
+@endsection

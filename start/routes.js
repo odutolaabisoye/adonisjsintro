@@ -17,5 +17,19 @@
 const Route = use('Route')
 
 Route.on('/').render('home')
+Route.get('/posts', 'PostController.index')
+Route.get('posts/add', 'PostController.add')
+Route.get('/posts/:id', 'PostController.details')
 
-Route.get('posts', 'PostController.index')
+Route.get('/posts/edit/:id', 'PostController.edit')
+
+Route.post('/posts/add', 'PostController.store').as('post.store')
+
+Route.put('/posts/:id', 'PostController.update').as('post.update')
+Route.delete('/posts/:id', 'PostController.destroy').as('post.update')
+
+Route.post('/posts/:id', 'PostController.delete')
+
+
+
+
