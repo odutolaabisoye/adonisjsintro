@@ -30,6 +30,8 @@ Route.delete('/posts/:id', 'PostController.destroy').as('post.update')
 
 Route.post('/posts/:id', 'PostController.delete')
 
-
+//User Authentication
+Route.get('/register', 'Auth/RegisterController.showRegisterForm')
+Route.post('/register', 'Auth/RegisterController.register').as('register')
 
 
